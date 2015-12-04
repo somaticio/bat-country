@@ -25,7 +25,7 @@ AWSOptions:
   something_else: false
 
 parameters:
-  input_image:
+  content_image:
     type: file
     required: true
     flag: -i
