@@ -5,7 +5,8 @@ General:
   author: somebody@someplace.org
 
 Initialize:
-  command: ls
+  command: /opt/caffe/scripts/download_model_binary.py /opt/caffe/models/bvlc_googlenet
+  _comment: remov hardcoded paths 
   workspace: /home/ubuntu/experiment/somatic/init
 
 Train:
@@ -13,7 +14,7 @@ Train:
   workspace:  /home/ubuntu/experiment/somatic/train
 
 Test:
-  command: /home/ubuntu/experiment/test.sh
+  command: python /home/ubuntu/experiment/demo.py --base-model /opt/caffe/models/bvlc_googlenet  
   workspace: /home/ubuntu/experiment/somatic/test
   input: file
   output: file
@@ -24,11 +25,11 @@ AWSOptions:
   something_else: false
 
 parameters:
-  content_image:
+  input_image:
     type: file
     required: true
-    flag: -content_image
-  gpu:
-    default: -1
-    type: integer
-    flag: -gpu
+    flag: -i
+  output_image:
+    type: string
+    required: true
+    flag: -o
