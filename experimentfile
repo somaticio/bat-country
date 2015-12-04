@@ -25,11 +25,11 @@ AWSOptions:
   something_else: false
 
 parameters:
-  content_image:
+  i:
     type: file
     required: true
     flag: -i
-  output_image:
+  o:
     type: string
     required: true
     flag: -o
