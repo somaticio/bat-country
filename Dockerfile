@@ -10,6 +10,8 @@ RUN update-alternatives --set libblas.so.3 \
       /usr/lib/atlas-base/atlas/libblas.so.3; \
     update-alternatives --set liblapack.so.3 \
       /usr/lib/atlas-base/atlas/liblapack.so.3
+#move install instructions to main cuda/docker
+
 RUN cd /home/ubuntu/somaticagent/ && git pull
 RUN cd /home/ubuntu/experiment && pip install -r requirements.txt
 RUN cd /home/ubuntu/experiment && python setup.py install
