@@ -18,7 +18,7 @@ Test:
   workspace: /home/ubuntu/experiment/somatic/test
   input: file
   output: file
-  mode: async
+  mode: sync
 
 AWSOptions:
   shutdown_after_run: true
@@ -29,7 +29,3 @@ parameters:
     type: file
     required: true
     flag: -i
-  o:
-    type: string
-    required: true
-    flag: -o

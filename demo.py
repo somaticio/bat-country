@@ -7,7 +7,7 @@
 from batcountry import BatCountry
 from PIL import Image
 import numpy as np
-import argparse,import time
+import argparse,time
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
@@ -18,8 +18,10 @@ ap.add_argument("-i", "--image", required=True, help="path to base image")
 ap.add_argument("-o", "--output", required=False, help="path to output image")
 args = ap.parse_args()
 
-if args.output == False:
-  args.output = "/home/ubuntu/"+ str(int(time.time()))
+if args.output == None:
+  args.output = "/home/ubuntu/"+ str(int(time.time())) + ".jpg"
+print args.output
+time.sleep(1)
 # we can't stop here...
 bc = BatCountry(args.base_model)
 image = bc.dream(np.float32(Image.open(args.image)), end=args.layer)
