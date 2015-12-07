@@ -26,3 +26,4 @@ bc.cleanup()
 # write the output image to file
 result = Image.fromarray(np.uint8(image))
 result.save(args.output)
+print args.output
