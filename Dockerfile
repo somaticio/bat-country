@@ -21,7 +21,7 @@ RUN cd /home/ubuntu/experiment && pip install -r requirements.txt
 RUN cd /home/ubuntu/experiment && python setup.py install
 ADD .docker-experimentconfig /home/ubuntu/experiment/.experimentconfig
 
-
 RUN cd /home/ubuntu/experiment/ && git pull
+RUN cd /home/ubuntu/somaticagent/ && git pull
 #MOVE BACK
 RUN python /home/ubuntu/somaticagent/web.py -i
