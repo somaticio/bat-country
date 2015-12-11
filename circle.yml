@@ -6,7 +6,7 @@ checkout:
   post:
     - git clone https://github.com/somaticio/somaticagent.git
     - pip install requests[security]
-    - pip install --upgrade setuptools
+    - sudo pip install --upgrade setuptools
 
 test:
   override:
