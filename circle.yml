@@ -2,11 +2,12 @@ machine:
   services:
     - docker
 
+dependencies:
+  override:
+    - echo "skipping pip install"
 checkout:
   post:
     - git clone https://github.com/somaticio/somaticagent.git
-    - sudo -H pip install --upgrade pyopenssl ndg-httpsclient pyasn1 pip
-    - sudo -H pip install -U pip setuptools virtualenv
 
 test:
   override:
