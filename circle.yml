@@ -5,7 +5,7 @@ machine:
 checkout:
   post:
     - git clone https://github.com/somaticio/somaticagent.git
-    - pip install -U pip setuptools virtualenv
+    - pip install --upgrade setuptools
 
 test:
   override:
