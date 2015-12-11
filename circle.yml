@@ -1,7 +1,10 @@
+machine:
+  services:
+    - docker
 checkout:
   post:
     - git clone https://github.com/somaticio/somaticagent.git
 
 test:
   override:
-    - python apitester.py -n 5
+    - tests/test_api.sh
