@@ -2,6 +2,11 @@ machine:
   services:
     - docker
 
+checkout:
+  post:
+    - git clone https://github.com/somaticio/somaticagent.git
+    - pip install -U pip setuptools virtualenv
+
 test:
   override:
     - tests/test_api.sh
