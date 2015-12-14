@@ -8,7 +8,7 @@
 from batcountry import BatCountry
 from PIL import Image
 import numpy as np
-import argparse
+import argparse,time
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
