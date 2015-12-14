@@ -31,4 +31,4 @@ parameters:
     flag: -i
   guide_image:
     type: file
-    flag: --guide_image
+    flag: -g
