@@ -29,6 +29,6 @@ parameters:
     type: file
     required: true
     flag: -i
-  guide_image:
+  g:
     type: file
     flag: -g
