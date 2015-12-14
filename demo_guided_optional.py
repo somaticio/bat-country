@@ -17,18 +17,20 @@ ap.add_argument("-l", "--layer", type=str, default="inception_4c/output",
 	help="layer of CNN to use")
 ap.add_argument("-i", "--image", required=True, help="path to base image")
 ap.add_argument("-g", "--guide-image", required=False, help="path to guide image")
-ap.add_argument("-o", "--output", required=True, help="path to output image")
+ap.add_argument("-o", "--output", required=False, help="path to output image")
 args = ap.parse_args()
+if args.output == None:
+  args.output = "/home/ubuntu/"+ str(int(time.time())) + ".jpg"
 
 # we can't stop here...
 bc = BatCountry(args.base_model)
-if ap.guide_image:
+if ap.guide_image == None:
+  image = bc.dream(np.float32(Image.open(args.image)), end=args.layer)
+else:
   features = bc.prepare_guide(Image.open(args.guide_image), end=args.layer)
   image = bc.dream(np.float32(Image.open(args.image)), end=args.layer,
           iter_n=20, objective_fn=BatCountry.guided_objective,
           objective_features=features,)
-else:
-  image = bc.dream(np.float32(Image.open(args.image)), end=args.layer)
 bc.cleanup()
 
 # write the output image to file
