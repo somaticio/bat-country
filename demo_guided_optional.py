@@ -24,7 +24,7 @@ if args.output == None:
 
 # we can't stop here...
 bc = BatCountry(args.base_model)
-if ap.guide_image == None:
+if args.guide_image == None:
   image = bc.dream(np.float32(Image.open(args.image)), end=args.layer)
 else:
   features = bc.prepare_guide(Image.open(args.guide_image), end=args.layer)
