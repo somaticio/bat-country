@@ -13,8 +13,7 @@ import argparse,time
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-b", "--base-model", required=True, help="base model path")
-ap.add_argument("-l", "--layer", type=str, default="inception_4c/output",
-	help="layer of CNN to use")
+ap.add_argument("-l", "--layer", type=str, help="layer of CNN to use")  #TODO add support choose layer
 ap.add_argument("-i", "--image", required=True, help="path to base image")
 ap.add_argument("-g", "--guide-image", required=False, help="path to guide image")
 ap.add_argument("-o", "--output", required=False, help="path to output image")
@@ -25,8 +24,12 @@ if args.output == None:
 # we can't stop here...
 bc = BatCountry(args.base_model)
 if args.guide_image == None:
+  if args.layer == None:
+    args.layer = "conv2/3x3"
   image = bc.dream(np.float32(Image.open(args.image)), end=args.layer)
 else:
+  if args.layer == None:
+    args.layer = "inception_4c/output"
   features = bc.prepare_guide(Image.open(args.guide_image), end=args.layer)
   image = bc.dream(np.float32(Image.open(args.image)), end=args.layer,
           iter_n=20, objective_fn=BatCountry.guided_objective,
