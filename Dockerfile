@@ -16,7 +16,7 @@ RUN cd /opt/caffe && make pycaffe && make distribute
 RUN /opt/caffe/scripts/download_model_binary.py /opt/caffe/models/bvlc_googlenet #MOVE THIS TO experimentfile
 
 RUN cd /home/ubuntu/somaticagent/ && git pull
-RUN git clone https://xx993e65f591708d4a3ed33e675dd3c019d4e25f82@github.com/somaticio/bat-country /home/ubuntu/experiment
+RUN git clone https://github.com/somaticio/bat-country /home/ubuntu/experiment
 RUN cd /home/ubuntu/experiment && pip install -r requirements.txt
 RUN cd /home/ubuntu/experiment && python setup.py install
 ADD .docker-experimentconfig /home/ubuntu/experiment/.experimentconfig
