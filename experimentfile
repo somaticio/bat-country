@@ -18,7 +18,7 @@ Test:
   workspace: /home/ubuntu/experiment/somatic/test
   input: file
   output: file
-  mode: sync
+  mode: async
 
 AWSOptions:
   shutdown_after_run: true
