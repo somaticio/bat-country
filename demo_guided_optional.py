@@ -17,9 +17,10 @@ ap.add_argument("-l", "--layer", type=str, help="layer of CNN to use")  #TODO ad
 ap.add_argument("-i", "--image", required=True, help="path to base image")
 ap.add_argument("-g", "--guide-image", required=False, help="path to guide image")
 ap.add_argument("-o", "--output", required=False, help="path to output image")
+ap.add_argument("-t", "--test", required=False, help="not used right now")
 args = ap.parse_args()
 if args.output == None:
-  args.output = "/home/ubuntu/"+ str(int(time.time())) + ".jpg"
+  args.output = "/data/output/"+ str(int(time.time())) + ".jpg"
 
 # we can't stop here...
 bc = BatCountry(args.base_model)
