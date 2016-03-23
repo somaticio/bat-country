@@ -18,12 +18,13 @@ ap.add_argument("-i", "--image", required=True, help="path to base image")
 ap.add_argument("-g", "--guide-image", required=False, help="path to guide image")
 ap.add_argument("-o", "--output", required=False, help="path to output image")
 ap.add_argument("-t", "--test", required=False, help="not used right now")
+ap.add_argument("-p", "--patch-model", required=False, help="path to patch model")
 args = ap.parse_args()
 if args.output == None:
   args.output = "/data/output/"+ str(int(time.time())) + ".jpg"
 
 # we can't stop here...
-bc = BatCountry(args.base_model)
+bc = BatCountry(args.base_model, patch_model = args.patch_model)
 if args.guide_image == None:
   if args.layer == None:
     args.layer = "conv2/3x3"
