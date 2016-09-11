@@ -21,7 +21,7 @@ ap.add_argument("-t", "--test", required=False, help="not used right now")
 ap.add_argument("-p", "--patch-model", required=False, help="path to patch model")
 args = ap.parse_args()
 if args.output == None:
-  args.output = "/data/output/"+ str(int(time.time())) + ".jpg"
+  args.output = "/data/output/"+ str(float(time.time())) + ".jpg"
 
 # we can't stop here...
 bc = BatCountry(args.base_model, patch_model = args.patch_model)
